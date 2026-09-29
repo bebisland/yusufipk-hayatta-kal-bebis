@@ -17,7 +17,7 @@ var _brutes: Array[CharacterVisual] = []
 var _subtitle: Label
 var _title: Label
 var _hint: Label
-var _bars: Array[ColorRect] = []
+var _bars: Array[Control] = []
 var _leaving := false
 
 
@@ -63,6 +63,12 @@ func _build_ui() -> void:
 			bar.offset_top = -110
 		layer.add_child(bar)
 		_bars.append(bar)
+	var skip_hint := _label(18, Color(0.7, 0.7, 0.7))
+	skip_hint.text = "Geçmek için Boşluk"
+	skip_hint.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT)
+	skip_hint.position = Vector2(-220, 40)
+	layer.add_child(skip_hint)
+	_bars.append(skip_hint)
 	_subtitle = _label(34, Color(0.95, 0.92, 0.85))
 	_subtitle.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
 	_subtitle.offset_top = -90
@@ -173,7 +179,18 @@ func _enter_shot(i: int) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	var pressed := (event is InputEventKey or event is InputEventMouseButton) and event.is_pressed()
-	if pressed and not _leaving:
+	if _leaving or not event.is_pressed() or event.is_echo():
+		return
+	# Ignore the click that focuses the window and stray movement keys: while
+	# the cutscene runs only Space, Enter or Esc skip it. Once the title is up,
+	# any key or click starts the game.
+	var title_up := _t >= TITLE_AT
+	var skip := false
+	if event is InputEventKey:
+		var k := (event as InputEventKey).physical_keycode
+		skip = title_up or k in [KEY_SPACE, KEY_ENTER, KEY_KP_ENTER, KEY_ESCAPE]
+	elif event is InputEventMouseButton:
+		skip = title_up
+	if skip and _t > 0.5:
 		_leaving = true
 		get_tree().change_scene_to_file(MAIN_SCENE)
