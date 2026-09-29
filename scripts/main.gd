@@ -1,7 +1,7 @@
 extends Node3D
 
 const SAVE_PATH := "user://save.cfg"
-const CAM_OFFSET := Vector3(0, 17, 10.5)
+const CAM_OFFSET := Vector3(0, 11.0, 7.0)
 
 @onready var player: Player = $Player
 @onready var hud: Hud = $HUD
@@ -13,6 +13,7 @@ var elapsed := 0.0
 var best_time := 0.0
 var game_over := false
 var _choosing := false
+var _autopilot := false
 
 
 static func ensure_input() -> void:
@@ -46,6 +47,11 @@ func _ready() -> void:
 	director.gem_parent = $Gems
 	director.wave_started.connect(hud.set_wave)
 	director.start()
+	_autopilot = Autopilot.enabled()
+	if _autopilot:
+		player.autopilot = true
+		Engine.time_scale = 3.0
+		Engine.physics_ticks_per_second = 180
 	camera.global_position = player.global_position + CAM_OFFSET
 	camera.look_at(player.global_position + Vector3(0, 0.5, 0))
 
@@ -74,6 +80,9 @@ func _on_leveled_up() -> void:
 	_choosing = true
 	get_tree().paused = true
 	level_up.open(choices)
+	if _autopilot:
+		_on_upgrade_chosen.call_deferred(choices.pick_random().id)
+		level_up.close()
 
 
 func _on_upgrade_chosen(id: String) -> void:
@@ -87,6 +96,10 @@ func _on_upgrade_chosen(id: String) -> void:
 
 func _on_died() -> void:
 	game_over = true
+	if _autopilot:
+		print("AUTOPILOT run: %.1f s, wave %d, level %d" % [elapsed, director.wave, player.level])
+		get_tree().create_timer(1.0).timeout.connect(get_tree().reload_current_scene)
+		return
 	var record := elapsed > best_time
 	if record:
 		best_time = elapsed

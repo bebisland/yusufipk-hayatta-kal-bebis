@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Hayatta Kal"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/intro.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
 [autoload]

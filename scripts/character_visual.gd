@@ -24,6 +24,7 @@ func _ready() -> void:
 		model = _make_placeholder()
 	add_child(model)
 	ModelUtil.collect_meshes(model, meshes)
+	ModelUtil.fix_meshy_materials(meshes)
 	ModelUtil.fit_height(model, target_height)
 	anim_player = _find_anim_player(model)
 	if anim_player:
@@ -127,3 +128,4 @@ func _clear_flash() -> void:
 	for mi in meshes:
 		if is_instance_valid(mi):
 			mi.material_overlay = null
+

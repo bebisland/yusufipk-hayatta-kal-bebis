@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/intro.gd" id="1_intro"]
+[ext_resource type="Script" path="res://scripts/arena.gd" id="2_arena"]
+[ext_resource type="Environment" path="res://scenes/environment.tres" id="3_env"]
+
+[node name="Intro" type="Node3D"]
+script = ExtResource("1_intro")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3_env")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.819152, -0.48642, 0.303949, 0, 0.529919, 0.848048, -0.573576, -0.69468, 0.434084, 0, 12, 0)
+light_color = Color(1, 0.95, 0.85, 1)
+light_energy = 1.3
+shadow_enabled = true
+directional_shadow_max_distance = 45.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+fov = 50.0
+
+[node name="Arena" type="Node3D" parent="."]
+script = ExtResource("2_arena")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
 [ext_resource type="Script" path="res://scripts/arena.gd" id="2_arena"]
@@ -6,35 +6,14 @@
 [ext_resource type="Script" path="res://scripts/wave_director.gd" id="4_wave"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="5_hud"]
 [ext_resource type="Script" path="res://scripts/level_up_screen.gd" id="6_lvl"]
-
-[sub_resource type="ProceduralSkyMaterial" id="sky_mat"]
-sky_top_color = Color(0.36, 0.5, 0.68, 1)
-sky_horizon_color = Color(0.75, 0.72, 0.65, 1)
-ground_bottom_color = Color(0.2, 0.18, 0.15, 1)
-ground_horizon_color = Color(0.75, 0.72, 0.65, 1)
-
-[sub_resource type="Sky" id="sky"]
-sky_material = SubResource("sky_mat")
-
-[sub_resource type="Environment" id="env"]
-background_mode = 2
-sky = SubResource("sky")
-ambient_light_source = 3
-ambient_light_energy = 0.9
-tonemap_mode = 3
-glow_enabled = true
-glow_intensity = 0.6
-glow_bloom = 0.05
-fog_enabled = true
-fog_light_color = Color(0.62, 0.62, 0.58, 1)
-fog_density = 0.006
+[ext_resource type="Environment" path="res://scenes/environment.tres" id="7_env"]
 
 [node name="Main" type="Node3D"]
 process_mode = 3
 script = ExtResource("1_main")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("env")
+environment = ExtResource("7_env")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.819152, -0.48642, 0.303949, 0, 0.529919, 0.848048, -0.573576, -0.69468, 0.434084, 0, 12, 0)

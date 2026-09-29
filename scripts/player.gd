@@ -25,6 +25,7 @@ var pending_levels := 0
 var taken: Dictionary = {}
 var dead := false
 var projectile_parent: Node
+var autopilot := false
 
 var _fire_cd := 0.0
 var _hurt_flash_cd := 0.0
@@ -55,6 +56,8 @@ func _physics_process(delta: float) -> void:
 	if dead:
 		return
 	var input := Input.get_vector(&"move_left", &"move_right", &"move_up", &"move_down")
+	if autopilot:
+		input = Autopilot.steer(self)
 	var move := Vector3(input.x, 0, input.y)
 	velocity = move * move_speed
 	move_and_slide()

@@ -101,6 +101,10 @@ func _text(s: String, size: int, color: Color) -> Label:
 	return l
 
 
+func close() -> void:
+	_root.visible = false
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if not _root.visible or not event is InputEventKey or not event.pressed or event.echo:
 		return
