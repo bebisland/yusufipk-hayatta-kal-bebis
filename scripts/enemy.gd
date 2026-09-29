@@ -79,6 +79,7 @@ func hit(dmg: float, from_dir: Vector3) -> void:
 		return
 	hp -= dmg
 	_visual.flash()
+	Audio.play("hit", -9.0, 0.12)
 	_knock = from_dir * (6.0 if kind == Kind.FAST else 1.5)
 	if hp <= 0:
 		_die()
@@ -86,6 +87,7 @@ func hit(dmg: float, from_dir: Vector3) -> void:
 
 func _die() -> void:
 	dying = true
+	Audio.play("brute_die" if kind == Kind.BRUTE else "enemy_die", -4.0, 0.1)
 	remove_from_group(&"enemies")
 	collision_layer = 0
 	collision_mask = 0

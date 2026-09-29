@@ -46,6 +46,8 @@ func _ready() -> void:
 	director.enemy_parent = $Enemies
 	director.gem_parent = $Gems
 	director.wave_started.connect(hud.set_wave)
+	director.wave_started.connect(func(_n: int) -> void: Audio.play("wave", -4.0, 0.0))
+	Audio.music()
 	director.start()
 	_autopilot = Autopilot.enabled()
 	if _autopilot:
@@ -79,6 +81,7 @@ func _on_leveled_up() -> void:
 		return
 	_choosing = true
 	get_tree().paused = true
+	Audio.play("level_up", -3.0, 0.0)
 	level_up.open(choices)
 	if _autopilot:
 		_on_upgrade_chosen.call_deferred(choices.pick_random().id)
@@ -86,6 +89,7 @@ func _on_leveled_up() -> void:
 
 
 func _on_upgrade_chosen(id: String) -> void:
+	Audio.play("card_pick", -4.0, 0.0)
 	player.apply_upgrade(id)
 	player.pending_levels -= 1
 	_choosing = false
@@ -96,6 +100,8 @@ func _on_upgrade_chosen(id: String) -> void:
 
 func _on_died() -> void:
 	game_over = true
+	Audio.play("game_over", -2.0, 0.0)
+	Audio.music(-26.0, 1.0)
 	if _autopilot:
 		print("AUTOPILOT run: %.1f s, wave %d, level %d" % [elapsed, director.wave, player.level])
 		get_tree().create_timer(1.0).timeout.connect(get_tree().reload_current_scene)

@@ -59,6 +59,7 @@ func _physics_process(delta: float) -> void:
 	var to := _target.global_position - global_position
 	to.y = 0
 	if to.length() < 0.5:
+		Audio.play("gem", -8.0, 0.1)
 		(_target as Player).add_xp(value)
 		queue_free()
 		return

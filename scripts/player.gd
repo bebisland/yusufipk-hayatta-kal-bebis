@@ -98,6 +98,7 @@ func _nearest_enemy() -> Enemy:
 
 
 func _shoot(dir: Vector3) -> void:
+	Audio.play("shoot", -10.0)
 	var spread := deg_to_rad(11.0)
 	for i in shots:
 		var offset := (i - (shots - 1) / 2.0) * spread
@@ -115,6 +116,7 @@ func take_damage(amount: float) -> void:
 	if _hurt_flash_cd <= 0.0:
 		_hurt_flash_cd = 0.25
 		_visual.flash(0.1)
+		Audio.play("hurt", -5.0)
 	health_changed.emit(hp, max_hp)
 	if hp <= 0.0:
 		dead = true
