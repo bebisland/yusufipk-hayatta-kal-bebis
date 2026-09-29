@@ -11,8 +11,28 @@ config_version=5
 [application]
 
 config/name="Hayatta Kal"
+run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
+
+[autoload]
+
+BeckettRuntime="*uid://do68dqybesb7r"
+
+[beckett]
+
+effort_schema=2
+dock_revealed=true
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/beckett/plugin.cfg")
+
+[rendering]
+
+anti_aliasing/quality/msaa_3d=2
