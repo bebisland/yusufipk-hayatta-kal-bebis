@@ -45,12 +45,24 @@ func play(name: String, volume_db := 0.0, pitch_jitter := 0.06) -> void:
 	var stream: AudioStream = _streams[name]
 	if not stream:
 		return
-	var p := _players[_next]
-	_next = (_next + 1) % VOICES
+	var p := _free_voice()
 	p.stream = stream
 	p.volume_db = volume_db
 	p.pitch_scale = 1.0 + randf_range(-pitch_jitter, pitch_jitter)
 	p.play()
+
+
+## First idle voice, so long cues (wave horn, level up) are not cut off by
+## rapid-fire sounds; only when all voices are busy is the oldest reused.
+func _free_voice() -> AudioStreamPlayer:
+	for i in VOICES:
+		var p := _players[(_next + i) % VOICES]
+		if not p.playing:
+			_next = (_next + i + 1) % VOICES
+			return p
+	var oldest := _players[_next]
+	_next = (_next + 1) % VOICES
+	return oldest
 
 
 ## Starts the music if it is not running, or fades it to a new level.
