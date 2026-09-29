@@ -4,7 +4,7 @@ extends CharacterBody3D
 enum Kind { FAST, BRUTE }
 
 const STATS := {
-	Kind.FAST: {"hp": 14.0, "speed": 4.6, "dps": 12.0, "xp": 1, "radius": 0.4, "height": 1.55,
+	Kind.FAST: {"hp": 14.0, "speed": 4.6, "dps": 10.0, "xp": 1, "radius": 0.4, "height": 1.55,
 		"model": "res://assets/models/fast.glb", "color": Color(0.55, 0.3, 0.7)},
 	Kind.BRUTE: {"hp": 75.0, "speed": 2.1, "dps": 28.0, "xp": 5, "radius": 0.75, "height": 2.5,
 		"model": "res://assets/models/brute.glb", "color": Color(0.6, 0.25, 0.2)},

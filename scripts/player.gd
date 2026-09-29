@@ -17,7 +17,7 @@ var fire_interval := 0.55
 var damage := 10.0
 var shots := 1
 var attack_range := 14.0
-var pickup_radius := 3.5
+var pickup_radius := 4.5
 var xp := 0
 var level := 1
 var xp_need := 5
@@ -130,7 +130,7 @@ func add_xp(amount: int) -> void:
 	while xp >= xp_need:
 		xp -= xp_need
 		level += 1
-		xp_need = int(4 + level * 3 + pow(level, 1.6))
+		xp_need = int(3 + level * 2.5 + pow(level, 1.3))
 		pending_levels += 1
 	xp_changed.emit(xp, xp_need, level)
 	if pending_levels > 0:

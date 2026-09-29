@@ -30,5 +30,5 @@ static func steer(player: Node3D) -> Vector2:
 			pull = d.normalized()
 	var centre := -p / 20.0
 	centre.y = 0
-	var v := push * 6.0 + pull * 0.6 + centre * centre.length()
+	var v := push * 6.0 + pull * (1.5 if push.length() < 0.15 else 0.5) + centre * centre.length()
 	return Vector2(v.x, v.z).limit_length(1.0)
