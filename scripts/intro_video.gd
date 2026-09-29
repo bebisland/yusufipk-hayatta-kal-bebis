@@ -3,6 +3,9 @@ extends Control
 ## in-engine cutscene takes over. Space, Enter or Esc skip the whole opening
 ## and go straight to the game, like they do in the cutscene.
 
+# Loaded by path only, so an export preset limited to selected scenes would
+# leave it out and the game would silently start at the cutscene. Keep
+# "Export all resources" or add *.ogv to the preset's include filter.
 const VIDEO_PATH := "res://assets/video/intro.ogv"
 const CUTSCENE := "res://scenes/intro.tscn"
 const GAME := "res://scenes/main.tscn"
