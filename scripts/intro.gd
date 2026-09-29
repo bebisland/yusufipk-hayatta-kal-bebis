@@ -22,6 +22,9 @@ var _leaving := false
 
 
 func _ready() -> void:
+	if Autopilot.enabled():
+		get_tree().change_scene_to_file.call_deferred(MAIN_SCENE)
+		return
 	_hero = _actor(Player.MODEL_PATH, 1.85, Color(0.2, 0.6, 0.6), [Player.IDLE_PATH])
 	for i in 6:
 		var a := _actor(Enemy.STATS[Enemy.Kind.FAST].model, 1.55, Color(0.55, 0.3, 0.7))

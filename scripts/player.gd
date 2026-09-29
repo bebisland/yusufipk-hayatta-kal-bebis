@@ -111,13 +111,12 @@ func _shoot(dir: Vector3) -> void:
 func take_damage(amount: float) -> void:
 	if dead:
 		return
-	hp -= amount
+	hp = maxf(hp - amount, 0.0)
 	if _hurt_flash_cd <= 0.0:
 		_hurt_flash_cd = 0.25
 		_visual.flash(0.1)
 	health_changed.emit(hp, max_hp)
 	if hp <= 0.0:
-		hp = 0.0
 		dead = true
 		_visual.set_motion(0.0)
 		died.emit()

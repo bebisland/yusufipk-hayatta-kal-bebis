@@ -108,7 +108,7 @@ func close() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if not _root.visible or not event is InputEventKey or not event.pressed or event.echo:
 		return
-	var idx := (event as InputEventKey).keycode - KEY_1
+	var idx := (event as InputEventKey).physical_keycode - KEY_1
 	if idx >= 0 and idx < _choices.size():
 		get_viewport().set_input_as_handled()
 		_pick(idx)

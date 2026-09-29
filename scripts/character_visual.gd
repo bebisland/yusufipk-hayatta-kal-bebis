@@ -121,7 +121,7 @@ func flash(duration := 0.08) -> void:
 		_flash_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	for mi in meshes:
 		mi.material_overlay = _flash_mat
-	get_tree().create_timer(duration, false).timeout.connect(_clear_flash)
+	get_tree().create_timer(duration, true).timeout.connect(_clear_flash)
 
 
 func _clear_flash() -> void:
