@@ -112,12 +112,15 @@ func _process(delta: float) -> void:
 	# In the last shot the enemies freeze mid-stride around the hero.
 	var frozen := shot == 3
 	for a in _fast:
+		# Hidden until their shot so they do not stand frozen on the horizon.
+		a.visible = _t > 4.0
 		if _t > 4.0 and not frozen and a.position.length() > 5.5:
 			a.position.z += 3.0 * delta
 			a.set_motion(0.75)
 		else:
 			a.set_motion(0.0)
 	for b in _brutes:
+		b.visible = _t > 7.0
 		if _t > 7.0 and not frozen:
 			b.position.x -= 1.4 * delta
 			b.set_motion(1.0)
