@@ -1,13 +1,13 @@
 class_name Autopilot
 extends RefCounted
 ## Debug-only bot used to measure run length while tuning difficulty.
-## Enabled by creating user://autopilot; never active in a normal install.
+## Enabled by creating user://autopilot in a debug build; release exports ignore it.
 
 const FLAG_PATH := "user://autopilot"
 
 
 static func enabled() -> bool:
-	return FileAccess.file_exists(FLAG_PATH)
+	return OS.is_debug_build() and FileAccess.file_exists(FLAG_PATH)
 
 
 ## Kites away from nearby enemies, drifts toward gems and the arena centre.
