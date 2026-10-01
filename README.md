@@ -1,29 +1,31 @@
 # Hayatta Kal
 
-A top-down horde survival game. Your crossbow fires on its own; you move, collect gems, level up and pick upgrades while the waves grow.
+![Hayatta Kal](docs/gameplay.webp)
 
-Built in Godot 4.7 by Claude Code (Opus 5.5). Every model, texture, music track and cutscene was generated with [Higgsfield](https://higgsfield.ai). The in-game text is in Turkish.
+Yukarıdan bakışlı bir hayatta kalma oyunu. Arbaletin kendi kendine ateş ediyor; sen hareket ediyor, mücevher topluyor, seviye atlıyor ve büyüyen dalgalara karşı güçlendirme seçiyorsun.
 
-## Play
+Bu oyunu bir YouTube videosu için yaptık. Kodu Godot 4.7'de Claude Code (Opus 5.5) yazdı; bütün modeller, dokular, müzik ve ara sahne videoları [Higgsfield](https://higgsfield.ai/s/claude-opus-5-5-yt-yusufipk-kKcOju) ile üretildi. Videonun linki yayınlanınca buraya eklenecek.
 
-Download the build for your system from [Releases](https://github.com/yusufipk/hayatta-kal/releases/latest) and run it. Nothing to install.
+## Oyna
 
-- **Windows:** `HayattaKal.exe`. The file is not code-signed, so SmartScreen may warn you: click "More info", then "Run anyway".
+[Releases](https://github.com/yusufipk/hayatta-kal/releases/latest) sayfasından sistemine uygun dosyayı indir ve çalıştır, kurulum gerekmiyor.
+
+- **Windows:** `HayattaKal.exe`. Dosya imzalı olmadığı için SmartScreen uyarı verebilir: "Ek bilgi"ye, sonra "Yine de çalıştır"a tıkla.
 - **Linux:** `chmod +x HayattaKal.x86_64 && ./HayattaKal.x86_64`
 
-Needs a GPU with Vulkan support (or Direct3D 12 on Windows).
+Vulkan destekleyen bir ekran kartı gerekiyor (Windows'ta Direct3D 12 de yeterli).
 
-## Controls
+## Kontroller
 
-- **WASD** or **arrow keys:** move (aiming and shooting are automatic)
-- **1 / 2 / 3:** pick an upgrade card on level up
-- **Space**, **Enter** or **Esc:** skip the intro
-- **R:** restart
+- **WASD** ya da **ok tuşları:** yürü (nişan ve ateş otomatik)
+- **1 / 2 / 3:** seviye atlayınca güçlendirme kartı seç
+- **Boşluk**, **Enter** ya da **Esc:** girişi geç
+- **R:** yeniden başla
 
-## Run from source
+## Kaynak koddan çalıştır
 
-Open `project.godot` in [Godot 4.7](https://godotengine.org/download) and press F5.
+`project.godot` dosyasını [Godot 4.7](https://godotengine.org/download) ile aç ve F5'e bas.
 
-## License
+## Lisans
 
-The code is MIT licensed. The models, textures, music and videos in `assets/` are not covered by that license.
+Kod MIT lisanslı. `assets/` klasöründeki modeller, dokular, müzik ve videolar bu lisansın kapsamında değil.
