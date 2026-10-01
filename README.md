@@ -11,7 +11,7 @@ Download the build for your system from [Releases](https://github.com/yusufipk/h
 - **Windows:** `HayattaKal.exe`. The file is not code-signed, so SmartScreen may warn you: click "More info", then "Run anyway".
 - **Linux:** `chmod +x HayattaKal.x86_64 && ./HayattaKal.x86_64`
 
-A GPU with Vulkan support is required.
+Needs a GPU with Vulkan support (or Direct3D 12 on Windows).
 
 ## Controls
 
@@ -26,4 +26,4 @@ Open `project.godot` in [Godot 4.7](https://godotengine.org/download) and press 
 
 ## License
 
-The code is MIT licensed. The generated assets in `assets/` are not covered by that license.
+The code is MIT licensed. The models, textures, music and videos in `assets/` are not covered by that license.
