@@ -24,6 +24,10 @@ window/size/viewport_width=1600
 window/size/viewport_height=900
 window/stretch/mode="canvas_items"
 
+[dotnet]
+
+project/assembly_name="Hayatta Kal"
+
 [rendering]
 
 anti_aliasing/quality/msaa_3d=2

@@ -34,8 +34,9 @@ func _ready() -> void:
 		var mi := MeshInstance3D.new()
 		mi.mesh = _placeholder_mesh
 		_body = mi
+	_body.scale *= 0.35
 	if value > 1:
-		_body.scale *= 1.5
+		_body.scale *= 1.25
 	add_child(_body)
 	_t = randf() * TAU
 

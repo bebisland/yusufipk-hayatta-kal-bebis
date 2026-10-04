@@ -1,53 +1,53 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene format=3 uid="uid://dql00cfyx5vf0"]
 
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
-[ext_resource type="Script" path="res://scripts/arena.gd" id="2_arena"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="3_player"]
-[ext_resource type="Script" path="res://scripts/wave_director.gd" id="4_wave"]
-[ext_resource type="Script" path="res://scripts/hud.gd" id="5_hud"]
-[ext_resource type="Script" path="res://scripts/level_up_screen.gd" id="6_lvl"]
-[ext_resource type="Environment" path="res://scenes/environment.tres" id="7_env"]
+[ext_resource type="Script" uid="uid://cbrflihc1oph3" path="res://scripts/main.gd" id="1_main"]
+[ext_resource type="Script" uid="uid://ye1kf5loydvm" path="res://scripts/arena.gd" id="2_arena"]
+[ext_resource type="Script" uid="uid://c5ql3qoy14jn8" path="res://scripts/player.gd" id="3_player"]
+[ext_resource type="Script" uid="uid://c1ry710v1oarb" path="res://scripts/wave_director.gd" id="4_wave"]
+[ext_resource type="Script" uid="uid://dmslmqwcr1q7d" path="res://scripts/hud.gd" id="5_hud"]
+[ext_resource type="Script" uid="uid://veowpks2s68d" path="res://scripts/level_up_screen.gd" id="6_lvl"]
+[ext_resource type="Environment" uid="uid://ssq73c7syjx8" path="res://scenes/environment.tres" id="7_env"]
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" unique_id=1495163247]
 process_mode = 3
 script = ExtResource("1_main")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1307394591]
 environment = ExtResource("7_env")
 
-[node name="Sun" type="DirectionalLight3D" parent="."]
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=270725163]
 transform = Transform3D(0.819152, -0.48642, 0.303949, 0, 0.529919, 0.848048, -0.573576, -0.69468, 0.434084, 0, 12, 0)
 light_color = Color(1, 0.95, 0.85, 1)
 light_energy = 1.3
 shadow_enabled = true
 directional_shadow_max_distance = 45.0
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1919171914]
 fov = 50.0
 
-[node name="Arena" type="Node3D" parent="."]
+[node name="Arena" type="Node3D" parent="." unique_id=1210760067]
 process_mode = 1
 script = ExtResource("2_arena")
 
-[node name="Player" type="CharacterBody3D" parent="."]
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1073113543]
 process_mode = 1
 script = ExtResource("3_player")
 
-[node name="Enemies" type="Node3D" parent="."]
+[node name="Enemies" type="Node3D" parent="." unique_id=1206983345]
 process_mode = 1
 
-[node name="Gems" type="Node3D" parent="."]
+[node name="Gems" type="Node3D" parent="." unique_id=2083019009]
 process_mode = 1
 
-[node name="Projectiles" type="Node3D" parent="."]
+[node name="Projectiles" type="Node3D" parent="." unique_id=1973100175]
 process_mode = 1
 
-[node name="WaveDirector" type="Node" parent="."]
+[node name="WaveDirector" type="Node" parent="." unique_id=258282919]
 process_mode = 1
 script = ExtResource("4_wave")
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="HUD" type="CanvasLayer" parent="." unique_id=290204033]
 script = ExtResource("5_hud")
 
-[node name="LevelUp" type="CanvasLayer" parent="."]
+[node name="LevelUp" type="CanvasLayer" parent="." unique_id=1978965973]
 script = ExtResource("6_lvl")

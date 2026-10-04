@@ -83,12 +83,22 @@ func _pick_anims() -> void:
 	var names := anim_player.get_animation_list()
 	for n in names:
 		var l := String(n).to_lower()
-		if _move_anim == "" and (l.contains("run") or l.contains("walk")):
+		print(l)
+		if l == "reset":
+			continue
+		var is_idle := l.contains("excited") or l.begins_with("extra_")
+		if is_idle:
+			if _idle_anim == "":
+				_idle_anim = n
+		elif _move_anim == "" and (l.contains("run") or l.contains("walk")):
 			_move_anim = n
-		if _idle_anim == "" and (l.contains("idle") or l.begins_with("extra_")):
-			_idle_anim = n
-	if _move_anim == "" and names.size() > 0:
-		_move_anim = names[0]
+	# İsimle bulunamadıysa: idle olmayan, RESET olmayan ilk animasyon
+	if _move_anim == "":
+		for n in names:
+			var l := String(n).to_lower()
+			if l != "reset" and n != _idle_anim:
+				_move_anim = n
+				break
 	for n in [_move_anim, _idle_anim]:
 		if n != "":
 			anim_player.get_animation(n).loop_mode = Animation.LOOP_LINEAR
@@ -128,4 +138,3 @@ func _clear_flash() -> void:
 	for mi in meshes:
 		if is_instance_valid(mi):
 			mi.material_overlay = null
-

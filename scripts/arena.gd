@@ -52,7 +52,7 @@ func _build_floor() -> void:
 	var tex_path := "res://assets/textures/floor.png"
 	if ResourceLoader.exists(tex_path):
 		mat.albedo_texture = load(tex_path)
-		mat.uv1_scale = Vector3(22, 22, 1)
+		mat.uv1_scale = Vector3(10, 10, 1)
 	else:
 		mat.albedo_color = Color(0.45, 0.43, 0.4)
 	mat.roughness = 0.95

@@ -170,9 +170,9 @@ func _process(delta: float) -> void:
 
 func _enter_shot(i: int) -> void:
 	match i:
-		0: _say("Taş meydanın son bekçisi sensin.")
-		1: _say("Önce çevik yağmacılar gelir, sürü halinde...")
-		2: _say("...ardından demir zırhlı devler.")
+		0: _say("Bebişland'in son bekçisi sensin.")
+		1: _say("Önce bebiş kurabiyeler gelir, sürü halinde...")
+		2: _say("...ardından büyük bebiş kurabiyeler.")
 		3:
 			_say("")
 			for bar in _bars:

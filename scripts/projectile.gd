@@ -21,9 +21,8 @@ func _ready() -> void:
 		cap.rings = 2
 		var mat := StandardMaterial3D.new()
 		mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-		mat.albedo_color = Color(0.55, 1.0, 1.0)
-		mat.emission_enabled = true
-		mat.emission = Color(0.3, 0.95, 1.0)
+		mat.albedo_color = Color(0.36, 0.216, 0.061, 1.0)
+		mat.emission_enabled = false
 		mat.emission_energy_multiplier = 3.0
 		cap.material = mat
 		_mesh = cap

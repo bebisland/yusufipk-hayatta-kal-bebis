@@ -10,8 +10,6 @@ const VIDEO_PATH := "res://assets/video/intro.ogv"
 const CUTSCENE := "res://scenes/intro.tscn"
 const GAME := "res://scenes/main.tscn"
 
-@onready var player: VideoStreamPlayer = $Video
-
 var _t := 0.0
 var _leaving := false
 
@@ -21,10 +19,6 @@ func _ready() -> void:
 		_go.call_deferred(GAME if Autopilot.enabled() else CUTSCENE)
 		return
 	Audio.music(-15.0, 2.0)
-	player.stream = load(VIDEO_PATH)
-	player.finished.connect(_go.bind(CUTSCENE))
-	player.play()
-
 
 func _process(delta: float) -> void:
 	_t += delta

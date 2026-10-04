@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cb8pf5btgbbm7"]
+
+[ext_resource type="Texture2D" uid="uid://cy3w8to7nwdub" path="res://assets/models/brute_kurabiye-bebis.png" id="1_srye8"]
+
+[resource]
+resource_name = "Material.002"
+cull_mode = 2
+albedo_texture = ExtResource("1_srye8")
+metadata/_gltf_primary_texture_coord = 0

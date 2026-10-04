@@ -1,4 +1,4 @@
-[gd_resource type="Environment" load_steps=3 format=3]
+[gd_resource type="Environment" format=3 uid="uid://ssq73c7syjx8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="sky_mat"]
 sky_top_color = Color(0.3, 0.48, 0.75, 1)
@@ -15,10 +15,10 @@ sky = SubResource("sky")
 ambient_light_source = 3
 ambient_light_energy = 0.9
 tonemap_mode = 3
-glow_enabled = true
 glow_intensity = 0.6
 glow_bloom = 0.05
 fog_enabled = true
-fog_light_color = Color(0.62, 0.62, 0.58, 1)
+fog_light_color = Color(0.7069983, 0.707052, 0.67143553, 1)
 fog_density = 0.006
 fog_sky_affect = 0.15
+volumetric_fog_density = 0.025

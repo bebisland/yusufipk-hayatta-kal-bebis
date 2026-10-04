@@ -47,7 +47,7 @@ func _ready() -> void:
 	_visual = CharacterVisual.new()
 	_visual.model_path = MODEL_PATH
 	_visual.extra_anim_paths = [IDLE_PATH]
-	_visual.target_height = 1.85
+	_visual.target_height = 1
 	_visual.placeholder_color = Color(0.2, 0.6, 0.6)
 	add_child(_visual)
 
