@@ -2,7 +2,7 @@
 
 ![Hayatta Kal](docs/gameplay-bebis.webp)
 
-Yukarıdan bakışlı bir hayatta kalma oyunu. Arbaletin kendi kendine ateş ediyor; sen hareket ediyor, mücevher topluyor, seviye atlıyor ve büyüyen dalgalara karşı güçlendirme seçiyorsun.
+Yukarıdan bakışlı bir hayatta kalma oyunu. Bebiş kendi kendine osuruyor; sen hareket ediyor, mücevher topluyor, seviye atlıyor ve büyüyen dalgalara karşı güçlendirme seçiyorsun.
 
 ## Oyna
 
